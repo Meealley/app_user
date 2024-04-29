@@ -8,23 +8,23 @@ class HorizontalCard extends StatelessWidget {
   final String price;
   final String status;
   final double rating;
-  final double noOfratings;
+  final int noOfratings;
   const HorizontalCard({
-    Key? key,
+    super.key,
     required this.restuarantName,
     required this.restaurantImage,
     required this.price,
     required this.status,
     required this.rating,
     required this.noOfratings,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 2.w),
       height: 100,
-      width: 300,
+      width: 305,
       child: Column(
         children: [
           ClipRRect(
@@ -40,7 +40,7 @@ class HorizontalCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(restuarantName),
-              FaIcon(
+              const FaIcon(
                 FontAwesomeIcons.heart,
               )
             ],
@@ -53,23 +53,28 @@ class HorizontalCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  FaIcon(
+                  const FaIcon(
                     FontAwesomeIcons.motorcycle,
                     size: 13,
                   ),
                   Text(
                     " From \$$price ",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 13,
                     ),
                   ),
-                  Text("| "),
-                  Text(status),
+                  const Text("| "),
+                  Text(
+                    status,
+                    style: TextStyle(
+                      color: status == "Open" ? Colors.green : Colors.red,
+                    ),
+                  ),
                 ],
               ),
               Row(
                 children: [
-                  FaIcon(
+                  const FaIcon(
                     FontAwesomeIcons.star,
                     size: 17,
                   ),

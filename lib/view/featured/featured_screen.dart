@@ -11,6 +11,6 @@ class FeaturedScreen extends StatefulWidget {
 class _FeaturedScreenState extends State<FeaturedScreen> {
   @override
   Widget build(BuildContext context) {
-    return FeaturedWidgets();
+    return const FeaturedWidgets();
   }
 }

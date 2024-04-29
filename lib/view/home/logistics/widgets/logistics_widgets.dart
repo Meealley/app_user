@@ -55,7 +55,7 @@ class LogisticsWidgets extends StatelessWidget {
                           top: 12.h,
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 "Send a Package",
                                 style: TextStyle(
                                   fontSize: 17,
@@ -66,7 +66,7 @@ class LogisticsWidgets extends StatelessWidget {
                               SizedBox(
                                 width: 2.w,
                               ),
-                              FaIcon(
+                              const FaIcon(
                                 FontAwesomeIcons.arrowRight,
                                 color: Colors.white,
                               )
@@ -100,14 +100,14 @@ class LogisticsWidgets extends StatelessWidget {
                           top: 12.h,
                           child: Row(
                             children: [
-                              FaIcon(
+                              const FaIcon(
                                 FontAwesomeIcons.arrowLeft,
                                 color: Colors.white,
                               ),
                               SizedBox(
                                 width: 2.w,
                               ),
-                              Text(
+                              const Text(
                                 "Recieve Package",
                                 style: TextStyle(
                                   fontSize: 17,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kfc/view/featured/featured_screen.dart';
-import 'package:kfc/view/featured/widgets/featured_card.dart';
 import 'package:kfc/view/home/logistics/logistics_screen.dart';
 import 'package:kfc/view/home/widgets/explore/explore_widgets.dart';
 import 'package:sizer/sizer.dart';
@@ -57,7 +56,7 @@ class HomeWidgets extends StatelessWidget {
         ],
       ),
       body: ListView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         padding: EdgeInsets.symmetric(
           horizontal: 3.w,
           vertical: 2.h,
@@ -269,7 +268,7 @@ class HomeWidgets extends StatelessWidget {
           SizedBox(
             height: 1.h,
           ),
-          Text(
+          const Text(
             "Explore",
             style: TextStyle(
               fontSize: 20,
@@ -279,7 +278,7 @@ class HomeWidgets extends StatelessWidget {
           SizedBox(
             height: 2.h,
           ),
-          ExploreWidgets(),
+          const ExploreWidgets(),
           SizedBox(
             height: 2.h,
           ),
@@ -287,53 +286,33 @@ class HomeWidgets extends StatelessWidget {
             thickness: 3,
             color: Colors.grey.shade200,
           ),
-          Text("Featured "),
+          const Text(
+            "Featured ",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           SizedBox(
             height: 1.h,
           ),
           // FeaturedScreen(),
+          const FeaturedScreen(),
           SizedBox(
-            height: 400,
-            width: double.infinity,
-            child: ListView(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              children: [
-                HorizontalCard(
-                  restuarantName: "Tastess",
-                  restaurantImage: "assets/images/displayImg.jpeg",
-                  price: "3,000",
-                  status: "Closed",
-                  rating: 4.7,
-                  noOfratings: 1,
-                ),
-                HorizontalCard(
-                  restuarantName: "Tastess",
-                  restaurantImage: "assets/images/displayImg.jpeg",
-                  price: "3,000",
-                  status: "Closed",
-                  rating: 4.7,
-                  noOfratings: 12,
-                ),
-                HorizontalCard(
-                  restuarantName: "Tastess",
-                  restaurantImage: "assets/images/displayImg.jpeg",
-                  price: "3,000",
-                  status: "Closed",
-                  rating: 4.7,
-                  noOfratings: 5,
-                ),
-                HorizontalCard(
-                  restuarantName: "Tastess",
-                  restaurantImage: "assets/images/displayImg.jpeg",
-                  price: "3,000",
-                  status: "Closed",
-                  rating: 4.7,
-                  noOfratings: 20,
-                ),
-              ],
+            height: 2.h,
+          ),
+          Divider(
+            thickness: 3,
+            color: Colors.grey.shade200,
+          ),
+
+          const Text(
+            "Discover 🤤 ",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
-          )
+          ),
         ],
       ),
     );

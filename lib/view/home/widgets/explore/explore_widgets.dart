@@ -35,7 +35,7 @@ class ExploreWidgets extends StatelessWidget {
                   exploreData.restaurantName.length > 8
                       ? '${exploreData.restaurantName.substring(0, 8)}-\n${exploreData.restaurantName.substring(8)}'
                       : exploreData.restaurantName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 13,
                   ),
                 ),
