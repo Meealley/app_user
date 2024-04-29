@@ -22,7 +22,9 @@ class HorizontalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 2.w),
+      // color: Colors.red,
+      // padding: EdgeInsets.symmetric(horizontal: 2.w),
+      margin: EdgeInsets.symmetric(horizontal: 2.w),
       height: 100,
       width: 305,
       child: Column(
@@ -31,6 +33,9 @@ class HorizontalCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.sp),
             child: Image.asset(
               restaurantImage,
+              height: 180,
+              width: 400,
+              fit: BoxFit.cover,
             ),
           ),
           SizedBox(
@@ -60,7 +65,7 @@ class HorizontalCard extends StatelessWidget {
                   Text(
                     " From \$$price ",
                     style: const TextStyle(
-                      fontSize: 13,
+                      fontSize: 14,
                     ),
                   ),
                   const Text("| "),

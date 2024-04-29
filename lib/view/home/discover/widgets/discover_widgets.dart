@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kfc/view/featured/widgets/featured_card.dart';
-import 'package:kfc/view/featured/widgets/featured_model.dart';
+import 'package:kfc/utils/horizontal_card.dart';
+import 'package:kfc/view/home/discover/widgets/discover_model.dart';
+import 'package:kfc/view/home/featured/widgets/featured_model.dart';
 
-class FeaturedWidgets extends StatelessWidget {
-  const FeaturedWidgets({super.key});
+class DiscoverWidgets extends StatelessWidget {
+  const DiscoverWidgets({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +14,9 @@ class FeaturedWidgets extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: featuredRestaurants.length,
+        itemCount: discoverRestaurants.length,
         itemBuilder: (context, index) {
-          final restaurant = featuredRestaurants[index];
+          final restaurant = discoverRestaurants[index];
           return HorizontalCard(
             restuarantName: restaurant.restaurantName,
             restaurantImage: restaurant.restaurantImage,

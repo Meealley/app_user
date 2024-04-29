@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kfc/view/featured/featured_screen.dart';
+import 'package:kfc/view/home/discover/discover_screeen.dart';
+import 'package:kfc/view/home/featured/featured_screen.dart';
 import 'package:kfc/view/home/logistics/logistics_screen.dart';
-import 'package:kfc/view/home/widgets/explore/explore_widgets.dart';
+import 'package:kfc/view/home/explore/explore_widgets.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeWidgets extends StatelessWidget {
@@ -313,6 +314,8 @@ class HomeWidgets extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          SizedBox(height: 2.h),
+          DiscoverScreen()
         ],
       ),
     );

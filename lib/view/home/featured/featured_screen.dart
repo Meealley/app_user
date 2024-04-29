@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kfc/view/featured/widgets/featured_widgets.dart';
+import 'package:kfc/view/home/featured/widgets/featured_widgets.dart';
 
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({super.key});

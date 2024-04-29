@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kfc/view/home/widgets/explore/explore_image_model.dart';
+import 'package:kfc/view/home/explore/explore_image_model.dart';
 import 'package:sizer/sizer.dart';
 
 class ExploreWidgets extends StatelessWidget {
