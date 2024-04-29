@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kfc/utils/custom_button.dart';
 import 'package:kfc/utils/reusable_text.dart';
 import 'package:sizer/sizer.dart';
 
@@ -102,30 +103,34 @@ class LoginScreenWidget extends StatelessWidget {
           SizedBox(
             height: 2.h,
           ),
-          ElevatedButton(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white,
-              minimumSize: Size(90.w, 6.h),
-            ),
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Next",
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  right: 5.w,
-                  child: const Icon(Icons.forward),
-                )
-              ],
-            ),
+          // ElevatedButton(
+          //   onPressed: onPressed,
+          //   style: ElevatedButton.styleFrom(
+          //     backgroundColor: Colors.black,
+          //     foregroundColor: Colors.white,
+          //     minimumSize: Size(90.w, 6.h),
+          //   ),
+          //   child: Stack(
+          //     children: [
+          //       Align(
+          //         alignment: Alignment.center,
+          //         child: Text(
+          //           "Next",
+          //           style: TextStyle(
+          //             fontSize: 12.sp,
+          //           ),
+          //         ),
+          //       ),
+          //       Positioned(
+          //         right: 5.w,
+          //         child: const Icon(Icons.forward),
+          //       )
+          //     ],
+          //   ),
+          // ),
+          CustomButton(
+            text: "Next",
+            onTapped: onPressed,
           ),
           SizedBox(
             height: 2.h,
@@ -138,34 +143,39 @@ class LoginScreenWidget extends StatelessWidget {
           SizedBox(
             height: 3.h,
           ),
-          TextButton(
-              onPressed: onPressNext,
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.red,
-                minimumSize: Size(90.w, 6.h),
-              ),
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Continue with Google",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12.sp,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 4.w,
-                    child: FaIcon(
-                      FontAwesomeIcons.google,
-                      color: Colors.white,
-                      size: 2.h,
-                    ),
-                  )
-                ],
-              ))
+          // TextButton(
+          //   onPressed: onPressNext,
+          //   style: TextButton.styleFrom(
+          //     backgroundColor: Colors.red,
+          //     minimumSize: Size(90.w, 6.h),
+          //   ),
+          //   child: Stack(
+          //     children: [
+          //       Align(
+          //         alignment: Alignment.center,
+          //         child: Text(
+          //           "Continue with Google",
+          //           style: TextStyle(
+          //             color: Colors.white,
+          //             fontSize: 12.sp,
+          //           ),
+          //         ),
+          //       ),
+          //       Positioned(
+          //         left: 4.w,
+          //         child: FaIcon(
+          //           FontAwesomeIcons.google,
+          //           color: Colors.white,
+          //           size: 2.h,
+          //         ),
+          //       )
+          //     ],
+          //   ),
+          // )
+          CustomButton(
+            text: "Continue with Google",
+            onTapped: onPressNext,
+          )
         ],
       ),
     );

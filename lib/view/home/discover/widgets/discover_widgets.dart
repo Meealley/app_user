@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kfc/utils/horizontal_card.dart';
 import 'package:kfc/view/home/discover/widgets/discover_model.dart';
-import 'package:kfc/view/home/featured/widgets/featured_model.dart';
 
 class DiscoverWidgets extends StatelessWidget {
   const DiscoverWidgets({super.key});

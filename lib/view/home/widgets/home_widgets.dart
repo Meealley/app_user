@@ -318,10 +318,10 @@ class HomeWidgets extends StatelessWidget {
             ),
           ),
           SizedBox(height: 2.h),
-          DiscoverScreen(),
+          const DiscoverScreen(),
           SizedBox(height: 2.h),
 
-          NearbyRestarurant(),
+          const NearbyRestarurant(),
         ],
       ),
     );

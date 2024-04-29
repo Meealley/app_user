@@ -13,10 +13,10 @@ class _NearbyRestarurantState extends State<NearbyRestarurant> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 10,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return VerticalCard();
+        return const VerticalCard();
       },
     );
   }
