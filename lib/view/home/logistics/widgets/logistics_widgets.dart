@@ -9,7 +9,11 @@ class LogisticsWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Mujin Logistics"),
+          surfaceTintColor: Colors.transparent,
+          title: const Text(
+            "Mujin Logistics",
+            style: TextStyle(fontWeight: FontWeight.w600),
+          ),
         ),
         body: ListView(
           padding: EdgeInsets.symmetric(

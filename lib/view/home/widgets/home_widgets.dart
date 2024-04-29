@@ -4,6 +4,7 @@ import 'package:kfc/view/home/discover/discover_screeen.dart';
 import 'package:kfc/view/home/featured/featured_screen.dart';
 import 'package:kfc/view/home/logistics/logistics_screen.dart';
 import 'package:kfc/view/home/explore/explore_widgets.dart';
+import 'package:kfc/view/home/nearby_restaurant/nearby_restaurant_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeWidgets extends StatelessWidget {
@@ -15,6 +16,8 @@ class HomeWidgets extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // elevation: 5,
+        surfaceTintColor: Colors.transparent,
+
         title: Row(
           children: [
             Row(
@@ -315,7 +318,10 @@ class HomeWidgets extends StatelessWidget {
             ),
           ),
           SizedBox(height: 2.h),
-          DiscoverScreen()
+          DiscoverScreen(),
+          SizedBox(height: 2.h),
+
+          NearbyRestarurant(),
         ],
       ),
     );

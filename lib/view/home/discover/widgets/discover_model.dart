@@ -18,11 +18,11 @@ class DiscoverRestaurant {
 List<DiscoverRestaurant> discoverRestaurants = [
   DiscoverRestaurant(
     restaurantImage: "assets/images/burger_king.jpeg",
-    restaurantName: "Mr Biggs",
+    restaurantName: "Burger King",
     price: "400",
     status: "Closed",
     rating: 3.4,
-    noOfRatings: 221,
+    noOfRatings: 151,
   ),
   DiscoverRestaurant(
     restaurantImage: "assets/images/displayImg.jpeg",
