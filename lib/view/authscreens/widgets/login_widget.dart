@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kfc/utils/custom_button.dart';
 import 'package:kfc/utils/reusable_text.dart';
 import 'package:sizer/sizer.dart';
 
@@ -34,7 +33,7 @@ class LoginScreenWidget extends StatelessWidget {
           SizedBox(
             height: 2.h,
           ),
-          Text(
+          const Text(
             "Create your account",
             style: TextStyle(
               fontSize: 25,
@@ -47,7 +46,7 @@ class LoginScreenWidget extends StatelessWidget {
           ),
 
           RichText(
-            text: TextSpan(
+            text: const TextSpan(
               text: 'Have an account? ',
               style: TextStyle(
                 color: Colors.black, // Change the color of the regular text
@@ -72,18 +71,37 @@ class LoginScreenWidget extends StatelessWidget {
           ),
 
           SizedBox(
-            height: 4.h,
+            height: 2.h,
           ),
 
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w600,
+          RichText(
+            text: TextSpan(
+              text: text,
+              style: const TextStyle(
+                color: Colors.black, // Change the color of the regular text
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+
+                fontFamily: "Manrope",
+              ),
+              children: const <TextSpan>[
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(
+                    color: Colors.green, // Change the color of the word "Login"
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Manrope",
+                  ),
+                  // Add onTap handler if needed
+                  // onTap: () {
+                  //   // Handle tap on "Login"
+                  // },
+                ),
+              ],
             ),
           ),
           SizedBox(
-            height: 2.h,
+            height: 1.5.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +162,223 @@ class LoginScreenWidget extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 2.h,
+            height: 2.5.h,
+          ),
+
+          RichText(
+            text: const TextSpan(
+              text: "Email address",
+              style: TextStyle(
+                color: Colors.black, // Change the color of the regular text
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+
+                fontFamily: "Manrope",
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(
+                    color: Colors.green, // Change the color of the word "Login"
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Manrope",
+                  ),
+                  // Add onTap handler if needed
+                  // onTap: () {
+                  //   // Handle tap on "Login"
+                  // },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 1.5.h,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 50,
+            child: TextField(
+              controller: controller,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                hintText: "abcde@email.com",
+                hintStyle: TextStyle(
+                  color: Colors.grey.shade500,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 3.w,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 2.5.h,
+          ),
+          RichText(
+            text: const TextSpan(
+              text: "First name",
+              style: TextStyle(
+                color: Colors.black, // Change the color of the regular text
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+
+                fontFamily: "Manrope",
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(
+                    color: Colors.green, // Change the color of the word "Login"
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Manrope",
+                  ),
+                  // Add onTap handler if needed
+                  // onTap: () {
+                  //   // Handle tap on "Login"
+                  // },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 1.5.h,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 50,
+            child: TextField(
+              controller: controller,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                hintText: "Enter first name",
+                hintStyle: TextStyle(
+                  color: Colors.grey.shade500,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 2.w,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(
+            height: 2.5.h,
+          ),
+          RichText(
+            text: const TextSpan(
+              text: "Last name",
+              style: TextStyle(
+                color: Colors.black, // Change the color of the regular text
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+
+                fontFamily: "Manrope",
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(
+                    color: Colors.green, // Change the color of the word "Login"
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Manrope",
+                  ),
+                  // Add onTap handler if needed
+                  // onTap: () {
+                  //   // Handle tap on "Login"
+                  // },
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 1.5.h,
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: 50,
+            child: TextField(
+              controller: controller,
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                hintText: "Enter your last name",
+                hintStyle: TextStyle(
+                  color: Colors.grey.shade500,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 3.w,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    9.sp,
+                  ),
+                  borderSide: const BorderSide(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(
+            height: 4.h,
           ),
           // ElevatedButton(
           //   onPressed: onPressed,
@@ -181,7 +415,7 @@ class LoginScreenWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5.sp),
               ),
               child: OTPbuttonPressed
-                  ? Center(
+                  ? const Center(
                       child: SizedBox(
                         height: 20,
                         width: 20,
@@ -190,10 +424,10 @@ class LoginScreenWidget extends StatelessWidget {
                         ),
                       ),
                     )
-                  : Center(
+                  : const Center(
                       child: Text(
                       "Next",
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                       ),
@@ -205,8 +439,9 @@ class LoginScreenWidget extends StatelessWidget {
             height: 2.h,
           ),
           const ReusableText(
+            fontSize: 13,
             text:
-                "By proceeding, you consent to get call and emails if necessary",
+                "By proceeding, I hereby consent to and agree with the terms and conditions outlined by Mujin Food. By agreeing to these terms, I acknowledge that I have read, understood, and accepted the policies, guidelines.",
             color: Colors.grey,
           ),
           SizedBox(
@@ -241,10 +476,10 @@ class LoginScreenWidget extends StatelessWidget {
           //     ],
           //   ),
           // )
-          CustomButton(
-            text: "Continue with Google",
-            onTapped: onPressNext,
-          )
+          // CustomButton(
+          //   text: "Continue with Google",
+          //   onTapped: onPressNext,
+          // )
         ],
       ),
     );

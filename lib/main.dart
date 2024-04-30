@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kfc/controller/provider/auth_provider.dart';
 import 'package:kfc/firebase_options.dart';
-import 'package:kfc/view/authscreens/login_screen.dart';
 import 'package:kfc/view/authscreens/signin_logic_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -35,7 +34,7 @@ class KFCApp extends StatelessWidget {
           theme: ThemeData(
             fontFamily: "Manrope",
           ),
-          home: SigninLogiceScreen(),
+          home: const SigninLogiceScreen(),
         ),
       );
     });

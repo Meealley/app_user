@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:kfc/constants/constants.dart';
 import 'package:kfc/controller/provider/auth_provider.dart';
 import 'package:kfc/view/authscreens/login_screen.dart';
@@ -19,13 +18,13 @@ class MobileAuthService {
     if (user == null) {
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => LoginScreenUser()),
+          MaterialPageRoute(builder: (context) => const LoginScreenUser()),
           (route) => false);
       return false;
     }
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => BottomNavigationUser()),
+        MaterialPageRoute(builder: (context) => const BottomNavigationUser()),
         (route) => false);
     return true;
   }
@@ -50,7 +49,7 @@ class MobileAuthService {
           Navigator.push(
             context,
             PageTransition(
-                child: OtpScreen(), type: PageTransitionType.rightToLeft),
+                child: const OtpScreen(), type: PageTransitionType.rightToLeft),
           );
         },
         codeAutoRetrievalTimeout: (String verificationID) {},
@@ -71,7 +70,7 @@ class MobileAuthService {
       Navigator.push(
         context,
         PageTransition(
-            child: SigninLogiceScreen(), type: PageTransitionType.rightToLeft),
+            child: const SigninLogiceScreen(), type: PageTransitionType.rightToLeft),
       );
     } catch (e) {
       log(e.toString());
