@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kfc/utils/custom_button.dart';
 import 'package:kfc/utils/reusable_text.dart';
@@ -8,6 +7,7 @@ class LoginScreenWidget extends StatelessWidget {
   final String text;
   final String selectedCountry;
   final VoidCallback onTapCountry;
+  final bool OTPbuttonPressed;
   final VoidCallback onPressed;
   final VoidCallback onPressNext;
   final TextEditingController controller;
@@ -19,7 +19,8 @@ class LoginScreenWidget extends StatelessWidget {
       required this.onTapCountry,
       required this.selectedCountry,
       required this.onPressNext,
-      required this.controller});
+      required this.controller,
+      required this.OTPbuttonPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +35,51 @@ class LoginScreenWidget extends StatelessWidget {
             height: 2.h,
           ),
           Text(
+            "Create your account",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+
+          SizedBox(
+            height: 1.4.h,
+          ),
+
+          RichText(
+            text: TextSpan(
+              text: 'Have an account? ',
+              style: TextStyle(
+                color: Colors.black, // Change the color of the regular text
+                fontSize: 18,
+                fontFamily: "Manrope",
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'Login',
+                  style: TextStyle(
+                    color: Colors.green, // Change the color of the word "Login"
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Manrope",
+                  ),
+                  // Add onTap handler if needed
+                  // onTap: () {
+                  //   // Handle tap on "Login"
+                  // },
+                ),
+              ],
+            ),
+          ),
+
+          SizedBox(
+            height: 4.h,
+          ),
+
+          Text(
             text,
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(
@@ -128,10 +171,36 @@ class LoginScreenWidget extends StatelessWidget {
           //     ],
           //   ),
           // ),
-          CustomButton(
-            text: "Next",
-            onTapped: onPressed,
+          GestureDetector(
+            onTap: onPressed,
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 13, 60, 14),
+                borderRadius: BorderRadius.circular(5.sp),
+              ),
+              child: OTPbuttonPressed
+                  ? Center(
+                      child: SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  : Center(
+                      child: Text(
+                      "Next",
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    )),
+            ),
           ),
+
           SizedBox(
             height: 2.h,
           ),
