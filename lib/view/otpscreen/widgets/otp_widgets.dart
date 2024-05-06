@@ -41,7 +41,7 @@ class OtpWidgets extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 15.sp,
               ),
             ),
             SizedBox(

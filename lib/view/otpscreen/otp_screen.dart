@@ -1,8 +1,12 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:kfc/controller/provider/auth_provider.dart';
+import 'package:kfc/controller/services/mobile_services.dart';
 import 'package:kfc/view/otpscreen/widgets/otp_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:provider/provider.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -42,12 +46,15 @@ class _OtpScreenState extends State<OtpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: OtpWidgets(
-        text: "Enter the 4-digit code sent to you at 08027012730",
+        text:
+            "Enter the 4-digit code sent to you at ${context.read<MobileAuthProvier>().mobileNumber}",
         textEditingController: _pinController,
         errorController: _errorController,
         resendOTP: resendOTPCounter,
         nextButton: () {
-          print("Next button clicked");
+          MobileAuthService.verifyOTP(
+              context: context, otp: _pinController.text.trim());
+          log("Next button clicked");
         },
         goBackButton: () => print("Back button clicked"),
       ),
