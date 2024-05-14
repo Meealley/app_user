@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kfc/controller/services/fetch_restaurant_services.dart';
 import 'package:kfc/view/account/account_screen.dart';
 import 'package:kfc/view/bottomnavigationbar/widgets/bottom_nav_widgets.dart';
 import 'package:kfc/view/cart/cart_screen.dart';
@@ -15,6 +16,15 @@ class BottomNavigationUser extends StatefulWidget {
 }
 
 class _BottomNavigationUserState extends State<BottomNavigationUser> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      RestaurantServices.getNearbyRestaurant(context);
+    });
+  }
+
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
 
