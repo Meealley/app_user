@@ -49,6 +49,8 @@ class RestaurantProvider extends ChangeNotifier {
   }
 
   searchedFoodItems(String foodName) {
+    searchedFood = [];
+    notifyListeners();
     for (var data in foods) {
       if (data.name.toLowerCase().contains(foodName.toLowerCase())) {
         searchedFood.add(data);
