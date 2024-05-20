@@ -7,7 +7,8 @@ import 'package:kfc/model/restaurant_model.dart';
 
 class RestaurantProvider extends ChangeNotifier {
   List<RestaurantModel> restaurants = [];
-
+  List<FoodModel> restaurantMenu = [];
+  List<FoodModel> searchedFood = [];
   List<FoodModel> foods = [];
 
   addRestaurants(String restaurantID) async {
@@ -26,5 +27,33 @@ class RestaurantProvider extends ChangeNotifier {
     notifyListeners();
     log("Total Food items fetched");
     log(foods.length.toString());
+  }
+
+  getRestaurantMenu(String restaurantID) {
+    for (var data in foods) {
+      if (data.restaurantUID == restaurantID) {
+        restaurantMenu.add(data);
+      }
+    }
+    notifyListeners();
+  }
+
+  emptyRestaurantMenu() {
+    restaurantMenu = [];
+    notifyListeners();
+  }
+
+  defaultSearchedFood() {
+    searchedFood = foods;
+    notifyListeners();
+  }
+
+  searchedFoodItems(String foodName) {
+    for (var data in foods) {
+      if (data.name.toLowerCase().contains(foodName.toLowerCase())) {
+        searchedFood.add(data);
+      }
+    }
+    notifyListeners();
   }
 }

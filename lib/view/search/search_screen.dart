@@ -9,8 +9,13 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return const SearchWidgets();
+    return SafeArea(
+      child: SearchWidgets(
+        controller: _searchController,
+      ),
+    );
   }
 }
