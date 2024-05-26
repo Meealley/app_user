@@ -107,7 +107,7 @@ class FoodDetailsWidget extends StatelessWidget {
                 ],
               ),
               Text(
-                " \u20A6 ${foodModel.price}",
+                " \u20A6 ${foodModel.discountedPrice}",
                 style: TextStyle(
                   fontSize: 14,
                   fontFamily: 'Roboto',

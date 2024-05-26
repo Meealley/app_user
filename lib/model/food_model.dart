@@ -9,7 +9,8 @@ class FoodModel {
   String foodID;
   String foodImageURL;
   bool isVegetarian;
-  String price;
+  String actualPrice;
+  String discountedPrice;
   FoodModel({
     required this.name,
     required this.restaurantUID,
@@ -18,7 +19,8 @@ class FoodModel {
     required this.foodID,
     required this.foodImageURL,
     required this.isVegetarian,
-    required this.price,
+    required this.actualPrice,
+    required this.discountedPrice,
   });
 
   Map<String, dynamic> toMap() {
@@ -30,7 +32,8 @@ class FoodModel {
       'foodID': foodID,
       'foodImageURL': foodImageURL,
       'isVegetarian': isVegetarian,
-      'price': price,
+      'actualPrice': actualPrice,
+      'discountedPrice': discountedPrice,
     };
   }
 
@@ -43,7 +46,8 @@ class FoodModel {
       foodID: map['foodID'] as String,
       foodImageURL: map['foodImageURL'] as String,
       isVegetarian: map['isVegetarian'] as bool,
-      price: map['price'] as String,
+      actualPrice: map['actualPrice'] as String,
+      discountedPrice: map['discountedPrice'] as String,
     );
   }
 

@@ -119,15 +119,35 @@ class _ParticularRestaurantmenuState extends State<ParticularRestaurantmenu> {
                             height: 1.5.h,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Text(
-                                '\u20A6${foodData.price}',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: 'Roboto',
-                                ),
+                              Text((((int.parse(foodData.actualPrice) -
+                                              int.parse(
+                                                  foodData.discountedPrice)) /
+                                          int.parse(foodData.actualPrice)) *
+                                      100)
+                                  .round()
+                                  .toString()),
+                              Column(
+                                children: [
+                                  Text(
+                                    '\u20A6${foodData.actualPrice}',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey,
+                                      fontFamily: 'Roboto',
+                                    ),
+                                  ),
+                                  Text(
+                                    '\u20A6${foodData.discountedPrice}',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      fontFamily: 'Roboto',
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

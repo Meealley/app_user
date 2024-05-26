@@ -139,7 +139,7 @@ class SearchWidgets extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              '\u20A6${foodData.price}',
+                              '\u20A6${foodData.discountedPrice}',
                               style: TextStyle(
                                 fontSize: 17,
                                 fontFamily: 'Roboto',
