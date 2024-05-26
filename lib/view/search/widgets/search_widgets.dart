@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kfc/controller/provider/restaurant_provider.dart';
 import 'package:kfc/model/food_model.dart';
+import 'package:kfc/view/fooddetails/food_details_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -21,7 +23,7 @@ class SearchWidgets extends StatelessWidget {
           ),
           child: TextField(
             controller: controller,
-            keyboardType: TextInputType.phone,
+            keyboardType: TextInputType.name,
             onChanged: (value) {
               context
                   .read<RestaurantProvider>()
@@ -75,65 +77,78 @@ class SearchWidgets extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 FoodModel foodData = restaurantProvider.searchedFood[index];
-                return Container(
-                  margin: EdgeInsets.symmetric(vertical: 1.h),
-                  padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5.sp),
-                    border: Border.all(
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 20.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.sp),
-                          image: DecorationImage(
-                            image: NetworkImage(foodData.foodImageURL),
-                            fit: BoxFit.cover,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                          child: FoodDetailsScreen(
+                            foodModel: foodData,
                           ),
-                        ),
+                          type: PageTransitionType.rightToLeft),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 1.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.sp),
+                      border: Border.all(
+                        color: Colors.black,
                       ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Text(
-                        foodData.name,
-                        style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 0.5.h,
-                      ),
-                      Text(
-                        foodData.description,
-                        style: TextStyle(
-                          fontSize: 17,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            '\u20A6${foodData.price}',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontFamily: 'Roboto',
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 20.h,
+                          width: 100.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.sp),
+                            image: DecorationImage(
+                              image: NetworkImage(foodData.foodImageURL),
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ],
-                      ),
-                    ],
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          foodData.name,
+                          style: TextStyle(
+                            fontSize: 19,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 0.5.h,
+                        ),
+                        Text(
+                          foodData.description,
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.5.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              '\u20A6${foodData.price}',
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontFamily: 'Roboto',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
