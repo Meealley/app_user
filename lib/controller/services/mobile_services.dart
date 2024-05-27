@@ -8,6 +8,7 @@ import 'package:kfc/view/authscreens/login_screen.dart';
 import 'package:kfc/view/authscreens/signin_logic_screen.dart';
 import 'package:kfc/view/bottomnavigationbar/bottom_navigationbar_screen.dart';
 import 'package:kfc/view/otpscreen/otp_screen.dart';
+import 'package:kfc/view/userregistrationscreen/user_registration_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
@@ -22,10 +23,12 @@ class MobileAuthService {
           (route) => false);
       return false;
     }
-    Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => const BottomNavigationUser()),
-        (route) => false);
+    // Navigator.pushAndRemoveUntil(
+    //     context,
+    //     MaterialPageRoute(builder: (context) => const BottomNavigationUser()),
+    //     (route) => false);
+
+    checkUserRegistration(context: context);
     return true;
   }
 
@@ -70,11 +73,46 @@ class MobileAuthService {
       Navigator.push(
         context,
         PageTransition(
-            child: const SigninLogiceScreen(), type: PageTransitionType.rightToLeft),
+            child: const SigninLogiceScreen(),
+            type: PageTransitionType.rightToLeft),
       );
     } catch (e) {
       log(e.toString());
       throw Exception(e);
+    }
+  }
+
+  static checkUserRegistration({required BuildContext context}) async {
+    bool userIsRegistered = false;
+
+    try {
+      await firestore
+          .collection('User')
+          .where("userID", isEqualTo: auth.currentUser!.uid)
+          .get()
+          .then((value) {
+        value.size > 0 ? userIsRegistered = true : userIsRegistered = false;
+        log("User is registered: $userIsRegistered");
+
+        if (userIsRegistered) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              PageTransition(
+                  child: const BottomNavigationUser(),
+                  type: PageTransitionType.rightToLeft),
+              (route) => false);
+        } else {
+          Navigator.pushAndRemoveUntil(
+              context,
+              PageTransition(
+                  child: const UserRegistrationScreen(),
+                  type: PageTransitionType.rightToLeft),
+              (route) => false);
+        }
+      });
+    } catch (e) {
+      log(e.toString());
+      throw Exception();
     }
   }
 }

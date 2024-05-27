@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kfc/controller/provider/restaurant_provider.dart';
 import 'package:kfc/model/food_model.dart';
 import 'package:kfc/view/fooddetails/food_details_screen.dart';
@@ -122,13 +123,24 @@ class _ParticularRestaurantmenuState extends State<ParticularRestaurantmenu> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Text((((int.parse(foodData.actualPrice) -
-                                              int.parse(
-                                                  foodData.discountedPrice)) /
-                                          int.parse(foodData.actualPrice)) *
-                                      100)
-                                  .round()
-                                  .toString()),
+                              Row(
+                                children: [
+                                  Text(
+                                    '${(((int.parse(foodData.actualPrice) - int.parse(foodData.discountedPrice)) / int.parse(foodData.actualPrice)) * 100).round().toString()} %',
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 2.w,
+                                  ),
+                                  FaIcon(
+                                    FontAwesomeIcons.tag,
+                                    color: Colors.green,
+                                  )
+                                ],
+                              ),
                               Column(
                                 children: [
                                   Text(

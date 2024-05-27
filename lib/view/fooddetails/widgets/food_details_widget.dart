@@ -59,6 +59,40 @@ class FoodDetailsWidget extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
+          SizedBox(
+            height: 3.h,
+          ),
+          Container(
+            height: 8.h,
+            width: 100.w,
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.sp),
+              color: Colors.green,
+            ),
+            child: Row(
+              children: [
+                Text(
+                  '${(((int.parse(foodModel.actualPrice) - int.parse(foodModel.discountedPrice)) / int.parse(foodModel.actualPrice)) * 100).round().toString()} %',
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  width: 2.w,
+                ),
+                FaIcon(
+                  FontAwesomeIcons.tag,
+                  color: Colors.white,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 3.h,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -106,13 +140,26 @@ class FoodDetailsWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(
-                " \u20A6 ${foodModel.discountedPrice}",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: 'Roboto',
-                ),
-              )
+              Column(
+                children: [
+                  Text(
+                    '\u20A6${foodModel.actualPrice}',
+                    style: TextStyle(
+                      fontSize: 17,
+                      decoration: TextDecoration.lineThrough,
+                      color: Colors.grey,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                  Text(
+                    '\u20A6${foodModel.discountedPrice}',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           SizedBox(
