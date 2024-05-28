@@ -77,7 +77,10 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
           userID: auth.currentUser!.uid,
         );
         Position location = await LocationServices.getCurrentLocation();
+        String addressID = uuid.v1().toString();
+
         UserAddressModel addressData = UserAddressModel(
+          addressID: addressID,
           userID: auth.currentUser!.uid,
           latitude: location.latitude,
           longitude: location.longitude,
@@ -85,7 +88,7 @@ class _UserRegistrationScreenState extends State<UserRegistrationScreen> {
           apartment: _apartmentController.text.trim(),
           addressTitle: _savedAddressAsController.text.trim(),
           uploadTime: DateTime.now(),
-          isActive: false,
+          isActive: true,
         );
 
         // ignore: use_build_context_synchronously

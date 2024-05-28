@@ -8,19 +8,24 @@ import 'package:geolocator/geolocator.dart';
 import 'package:kfc/constants/constants.dart';
 import 'package:kfc/controller/provider/restaurant_provider.dart';
 import 'package:kfc/controller/services/location_services.dart';
+import 'package:kfc/controller/services/user_data_crud_services.dart';
 import 'package:kfc/model/food_model.dart';
 import 'package:kfc/model/restaurant_id_n_location_model.dart';
 import 'package:kfc/model/restaurant_model.dart';
+import 'package:kfc/model/user_address_model.dart';
 import 'package:provider/provider.dart';
 
 class RestaurantServices {
   static getNearbyRestaurant(BuildContext context) async {
     Geofire.initialize("Restaurants");
-    Position currentPosition = await LocationServices.getCurrentLocation();
+    // Position currentPosition = await LocationServices.getCurrentLocation();
+    UserAddressModel userActiveAddress =
+        await UserDataCRUDServices.fetchActiveAddress();
+    log(userActiveAddress.toMap().toString());
     Geofire.queryAtLocation(
-      currentPosition.latitude,
-      currentPosition.longitude,
-      40, //Change back to 20;
+      userActiveAddress.latitude,
+      userActiveAddress.longitude,
+      20, //Change back to 20;
     )!
         .listen((event) {
       if (event != null) {
