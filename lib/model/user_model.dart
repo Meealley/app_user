@@ -5,10 +5,12 @@ class UserModel {
   String name;
   String profilePicsUrl;
   String userID;
+  String? cloudMessagingToken;
   UserModel({
     required this.name,
     required this.profilePicsUrl,
     required this.userID,
+    this.cloudMessagingToken,
   });
 
   Map<String, dynamic> toMap() {
@@ -16,6 +18,7 @@ class UserModel {
       'name': name,
       'profilePicsUrl': profilePicsUrl,
       'userID': userID,
+      'cloudMessagingToken': cloudMessagingToken,
     };
   }
 
@@ -24,6 +27,9 @@ class UserModel {
       name: map['name'] as String,
       profilePicsUrl: map['profilePicsUrl'] as String,
       userID: map['userID'] as String,
+      cloudMessagingToken: map['cloudMessagingToken'] != null
+          ? map['cloudMessagingToken'] as String
+          : null,
     );
   }
 

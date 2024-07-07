@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kfc/constants/constants.dart';
 import 'package:kfc/controller/provider/auth_provider.dart';
+import 'package:kfc/controller/services/push_notification_services.dart';
 import 'package:kfc/view/authscreens/login_screen.dart';
 import 'package:kfc/view/authscreens/signin_logic_screen.dart';
 import 'package:kfc/view/bottomnavigationbar/bottom_navigationbar_screen.dart';
@@ -95,6 +96,7 @@ class MobileAuthService {
         log("User is registered: $userIsRegistered");
 
         if (userIsRegistered) {
+          PushNotificationServices.initializeFCM();
           Navigator.pushAndRemoveUntil(
               context,
               PageTransition(
